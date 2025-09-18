@@ -86,43 +86,64 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-cream to-soft-green py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-merriweather font-bold text-saddle-brown mb-6 leading-tight">
-                Уникальные изделия ручной работы
-              </h2>
-              <p className="text-lg text-dark-olive mb-8 leading-relaxed">
-                Каждое изделие создается с душой и любовью. Мы показываем весь процесс создания — 
-                от первого прикосновения к материалу до финального штриха.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  className="bg-saddle-brown hover:bg-saddle-brown/90 text-white px-8 py-3 text-lg"
-                  onClick={() => document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Смотреть каталог
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="border-saddle-brown text-saddle-brown hover:bg-saddle-brown hover:text-white px-8 py-3 text-lg"
-                >
-                  <Icon name="Play" size={20} className="mr-2" />
-                  Процесс создания
-                </Button>
+      {/* Main Content */}
+      <section className="py-20 bg-gradient-to-br from-cream to-soft-green">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-merriweather font-bold text-saddle-brown mb-6 leading-tight">
+              Творчество и ручная работа
+            </h2>
+            <p className="text-xl text-dark-olive max-w-3xl mx-auto leading-relaxed">
+              Добро пожаловать в мир уникальных изделий, созданных с душой и любовью. 
+              Здесь каждая вещь рассказывает свою историю мастерства и вдохновения.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center p-8 bg-white/80 backdrop-blur-sm border-warm-beige/30 hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                <Icon name="Heart" size={32} className="text-saddle-brown" />
               </div>
-            </div>
-            
-            <div className="relative animate-scale-in">
-              <img 
-                src="/img/95a311c9-3a2c-4182-a3f0-ace917a2a00d.jpg" 
-                alt="Мастерская" 
-                className="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-saddle-brown/20 to-transparent rounded-2xl"></div>
-            </div>
+              <h3 className="font-merriweather font-bold text-xl text-saddle-brown mb-3">
+                С любовью к деталям
+              </h3>
+              <p className="text-dark-olive">
+                Каждое изделие создается вручную с особым вниманием к мелочам и качеству материалов.
+              </p>
+            </Card>
+
+            <Card className="text-center p-8 bg-white/80 backdrop-blur-sm border-warm-beige/30 hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                <Icon name="Leaf" size={32} className="text-saddle-brown" />
+              </div>
+              <h3 className="font-merriweather font-bold text-xl text-saddle-brown mb-3">
+                Натуральные материалы
+              </h3>
+              <p className="text-dark-olive">
+                Мы используем только экологически чистые и натуральные материалы высшего качества.
+              </p>
+            </Card>
+
+            <Card className="text-center p-8 bg-white/80 backdrop-blur-sm border-warm-beige/30 hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                <Icon name="Star" size={32} className="text-saddle-brown" />
+              </div>
+              <h3 className="font-merriweather font-bold text-xl text-saddle-brown mb-3">
+                Уникальность
+              </h3>
+              <p className="text-dark-olive">
+                Каждое изделие неповторимо и создается в единственном экземпляре специально для вас.
+              </p>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Button 
+              className="bg-saddle-brown hover:bg-saddle-brown/90 text-white px-8 py-3 text-lg"
+              onClick={() => document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Посмотреть работы
+            </Button>
           </div>
         </div>
       </section>
@@ -135,7 +156,7 @@ const Index = () => {
               Наши изделия
             </h3>
             <p className="text-lg text-dark-olive max-w-2xl mx-auto">
-              Каждое изделие рассказывает свою историю. Посмотрите, как рождаются шедевры в наших руках.
+              Каждое изделие рассказывает свою историю мастерства и любви к творчеству.
             </p>
           </div>
 
@@ -162,23 +183,7 @@ const Index = () => {
                       {product.description}
                     </p>
                     
-                    {/* Process Gallery */}
-                    <div className="mb-4">
-                      <p className="text-xs font-medium text-dark-olive mb-2 flex items-center">
-                        <Icon name="Camera" size={14} className="mr-1" />
-                        Процесс создания:
-                      </p>
-                      <div className="flex gap-2">
-                        {product.processImages.map((img, imgIndex) => (
-                          <img 
-                            key={imgIndex}
-                            src={img} 
-                            alt={`Процесс ${imgIndex + 1}`}
-                            className="w-12 h-12 object-cover rounded-lg border border-warm-beige/30 hover:scale-110 transition-transform cursor-pointer"
-                          />
-                        ))}
-                      </div>
-                    </div>
+
                     
                     <div className="flex items-center justify-between">
                       <span className="text-xl font-bold text-saddle-brown">
